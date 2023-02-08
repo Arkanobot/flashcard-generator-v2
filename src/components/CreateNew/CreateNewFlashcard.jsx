@@ -1,36 +1,99 @@
 import React from "react";
+import CardImage from "./CardImage";
 import Terms from "./Terms";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import { initialValues } from "./initialValues";
+import { formSchema } from "../FormValidation";
+import { useDispatch } from "react-redux";
+import { cardVal } from "../../redux/flashcards";
+import { successToast } from "../ToastifyNotification/Toast";
 
 export default function CreateNewFlashcard() {
+  const dispatch = useDispatch();
   return (
-    <div className="md:mt-10 px-5 2xl:px-44 xl:px-20 my-5">
+    <div className="md:mt-10 px-5 2xl:pl-44 2xl:pr-[20%] xl:px-20 my-5">
       <div>
-        <h1>My Form</h1>
         <Formik
-          initialValues={{ name: "jared", terms: ["1", 2, 3] }}
+          initialValues={initialValues}
+          validationSchema={formSchema}
           onSubmit={(values, actions) => {
-            setTimeout(() => {
-              alert(JSON.stringify(values, null, 2));
-              actions.setSubmitting(false);
-            }, 1000);
+            actions.resetForm();
+            dispatch(cardVal(values));
+            successToast("Flashcard Created!", "top-center");
           }}
         >
           {(props) => (
             <Form onSubmit={props.handleSubmit}>
-              <Field
-                type="text"
-                onChange={props.handleChange}
-                onBlur={props.handleBlur}
-                value={props.values.name}
-                name="name"
-              />
-              {props.errors.name && (
-                <div id="feedback">{props.errors.name}</div>
-              )}
-
-              <Terms values={props.values} />
-              <button type="submit">Submit</button>
+              <div className="bg-white p-5 rounded-md space-y-4">
+                <div className="grid md:flex">
+                  <div
+                    className={`flex flex-col md:order-first ${
+                      props.values.cardImg === "" ? "order-1" : "order-2"
+                    }`}
+                  >
+                    <h1 className="font-semibold text-slate-500">
+                      Create Group*
+                    </h1>
+                    <Field
+                      className=" border-slate-400  focus:ring-0 active:ring-0 rounded-md md:w-96 p-2
+                  bg-gray-100 border text-md  "
+                      type="text"
+                      onChange={props.handleChange}
+                      onBlur={props.handleBlur}
+                      value={props.values.cardName}
+                      name="cardName"
+                      maxLength={15}
+                      placeholder={"Please Group Name [Max: 15 Chars]"}
+                    />
+                    {
+                      <p className="mx-auto text-sm text-[var(--color-red)]">
+                        <ErrorMessage name={`cardName`} />
+                      </p>
+                    }
+                  </div>
+                  <div
+                    className={`grid place-content-center md:inline-block md:mx-20 ${
+                      props.values.cardImg === "" ? "order-2" : "order-1"
+                    } `}
+                  >
+                    <CardImage />
+                  </div>
+                </div>
+                <div className="flex flex-col">
+                  <span className="font-semibold text-slate-500">
+                    Group Description*
+                  </span>
+                  <Field
+                    as="textarea"
+                    className="w-full border-slate-400 resize-none   rounded-md md:w-3/4 md:h-40 p-2 bg-gray-100 border text-md"
+                    type="text"
+                    onChange={props.handleChange}
+                    onBlur={props.handleBlur}
+                    value={props.values.cardDesc}
+                    name="cardDesc"
+                    placeholder={"Please Group Description [Max: 500 Chars]"}
+                  />
+                  <div>
+                    <span className="text-sm text-slate-500">{`Chars left: ${
+                      500 - props.values.cardDesc.length
+                    }`}</span>
+                    <span className="mx-5 text-sm text-[var(--color-red)]">
+                      <ErrorMessage name={`cardDesc`} />
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <Terms values={props.values} />
+              </div>
+              <div className="grid place-content-center">
+                <button
+                  className="mt-6 border-[var(--color-red)]  border w-32  p-2  text-[var(--color-red)] rounded-lg shadow-md hover:-translate-y-px hover:bg-[var(--color-red)] hover:text-white transition-all ease-in-out grid place-content-center font-semibold"
+                  type="submit"
+                >
+                  Create
+                </button>
+              </div>
             </Form>
           )}
         </Formik>

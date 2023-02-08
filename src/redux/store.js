@@ -1,8 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
-//reducers go here...
+import cardReducer from "./flashcards";
 
 export default configureStore({
   reducer: {
     //reducerName : imported reducer --format
+    cards: cardReducer,
   },
 });

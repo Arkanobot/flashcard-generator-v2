@@ -1,6 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+:root {
+  --color-red: #cc1313;
+}
 
 body {
   margin: 0;
@@ -37,7 +40,8 @@ code {
   content: "";
   right: 90px;
   height: 3px;
-  background: #cc1313;
+  background: var(--color-red);
+  border-radius: 4rem;
   transition: 0.3s;
   bottom: -4px;
   width: 0;
