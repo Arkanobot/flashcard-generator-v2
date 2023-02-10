@@ -9,7 +9,11 @@ export default function TermImage(props) {
     <div>
       {props.term.termImg === "" ? (
         <label htmlFor={`img${props.index}`}>
-          <div className="mt-7 mb-[4px] border-[var(--color-red)]  border mx-auto w-32  p-2  text-[var(--color-red)] rounded-lg shadow-md hover:-translate-y-px hover:bg-[var(--color-red)] hover:text-white transition-all ease-in-out grid place-content-center font-semibold">
+          <div
+            data-mdb-ripple="true"
+            data-mdb-ripple-color="light"
+            className="mt-7 mb-[4px] border-[var(--color-red)]  border mx-auto w-32  p-2  text-[var(--color-red)] rounded-lg shadow-md hover:-translate-y-px hover:bg-[var(--color-red)] hover:text-white transition-all ease-in-out grid place-content-center font-semibold"
+          >
             Select Image
           </div>
         </label>

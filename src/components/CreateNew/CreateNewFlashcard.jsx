@@ -5,8 +5,8 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { initialValues } from "./initialValues";
 import { formSchema } from "../FormValidation";
 import { useDispatch } from "react-redux";
-import { cardVal } from "../../redux/flashcards";
-import { successToast } from "../ToastifyNotification/Toast";
+import { cardAdd } from "../../redux/flashcards";
+import { successToast } from "../ToastifyNotification";
 
 export default function CreateNewFlashcard() {
   const dispatch = useDispatch();
@@ -18,8 +18,8 @@ export default function CreateNewFlashcard() {
           validationSchema={formSchema}
           onSubmit={(values, actions) => {
             actions.resetForm();
-            dispatch(cardVal(values));
-            successToast("Flashcard Created!", "top-center");
+            dispatch(cardAdd({ values }));
+            successToast("Flashcard Created", "top-center");
           }}
         >
           {(props) => (
@@ -70,6 +70,7 @@ export default function CreateNewFlashcard() {
                     onChange={props.handleChange}
                     onBlur={props.handleBlur}
                     value={props.values.cardDesc}
+                    maxLength={500}
                     name="cardDesc"
                     placeholder={"Please Group Description [Max: 500 Chars]"}
                   />
@@ -88,6 +89,8 @@ export default function CreateNewFlashcard() {
               </div>
               <div className="grid place-content-center">
                 <button
+                  data-mdb-ripple="true"
+                  data-mdb-ripple-color="light"
                   className="mt-6 border-[var(--color-red)]  border w-32  p-2  text-[var(--color-red)] rounded-lg shadow-md hover:-translate-y-px hover:bg-[var(--color-red)] hover:text-white transition-all ease-in-out grid place-content-center font-semibold"
                   type="submit"
                 >

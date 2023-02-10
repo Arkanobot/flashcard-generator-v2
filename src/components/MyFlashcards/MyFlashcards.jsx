@@ -1,9 +1,13 @@
 import React from "react";
+import { useSelector } from "react-redux";
+import EmptyPage from "./EmptyPage";
+import FlashcardsList from "./FlashcardsList";
 
-function MyFlashcards() {
+export default function MyFlashcards() {
+  const { cards } = useSelector((state) => state.cards);
   return (
-    <div className="md:mt-10 px-5 2xl:px-44 xl:px-20 my-5">MyFlashcards</div>
+    <div className="my-5 px-5 2xl:px-44 xl:px-20 flex flex-col">
+      {cards.length === 0 ? <EmptyPage /> : <FlashcardsList />}
+    </div>
   );
 }
-
-export default MyFlashcards;

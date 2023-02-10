@@ -25,9 +25,9 @@ export function successToast(message, loc) {
     theme: "light",
   });
 }
-export function errorToast(message) {
-  toast.error(`${message}`, {
-    position: "bottom-left",
+export function errorToast(message, loc) {
+  toast.error(`${message}!`, {
+    position: loc,
     autoClose: 2000,
     hideProgressBar: false,
     closeOnClick: true,

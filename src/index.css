@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
   --color-red: #cc1313;
 }
@@ -45,4 +46,14 @@ code {
   transition: 0.3s;
   bottom: -4px;
   width: 0;
+}
+
+.termName .active {
+  color: var(--color-red);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+.iconHover:hover {
+  font-size: 3rem;
 }
