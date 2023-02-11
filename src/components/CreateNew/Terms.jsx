@@ -90,6 +90,15 @@ export default function Terms() {
                     type="text"
                     name={`terms.${index}.termDef`}
                   />
+                  <span
+                    className={`text-[0.70rem] text-slate-500 absolute ${
+                      formikProps.values.terms[index].termDef !== ""
+                        ? "top-[8.2rem]"
+                        : "top-20"
+                    }  duration-[250ms]`}
+                  >{`Chars left: ${
+                    500 - formikProps.values.terms[index].termDef.length
+                  }`}</span>
                   <span className="mx-auto text-sm text-[var(--color-red)]">
                     <ErrorMessage name={`terms.${index}.termName`} />
                   </span>
