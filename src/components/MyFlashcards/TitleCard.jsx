@@ -15,7 +15,7 @@ export default function TitleCard(props) {
   };
   return (
     <div className="mx-auto w-full mt-10 max-w-sm max-h-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-xl transition-all ease-in-out duration-300 hover:-translate-y-1">
-      <div className="flex flex-col items-center relative py-10">
+      <div className="flex flex-col items-center relative py-10 hover:bg-slate-50 rounded-md">
         <div>
           <img
             src={cards[i].values.cardImg}

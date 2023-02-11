@@ -8,7 +8,7 @@ function DynamicLinkBar() {
     successToast("Link Copied", "top-center");
   };
   return (
-    <div class="border-2 border-dashed border-gray-300 rounded-lg inline-flex justify-around w-[100%]">
+    <div className="border-2 border-dashed border-gray-300 rounded-lg inline-flex justify-around w-[100%]">
       <div className="py-[4%] px-4 inline-block text-md rounded-l-lg text-slate-500">
         Link:
       </div>

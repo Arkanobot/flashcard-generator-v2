@@ -13,7 +13,10 @@ export default function Header() {
         </NavLink>
         <NavLink to="/">
           <h1 className="font-bold md:text-2xl text-lg">
-            Flash Card Generator
+            <span className="inline-block py-1.5 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-[var(--color-red)] text-white rounded">
+              Flashcard{" "}
+            </span>{" "}
+            Generator
           </h1>
         </NavLink>
       </div>

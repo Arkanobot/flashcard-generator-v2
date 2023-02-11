@@ -16,7 +16,7 @@ export default function TermBar() {
               <NavLink
                 to={`/flashcard/${slug}/${i}`}
                 key={i}
-                className={`font-semibold block active:text-[var(--color-red)] hover:text-lg hover:text-[var(--color-red)] duration-500`}
+                className={`font-semibold block active:text-[var(--color-red)] hover:text-lg hover:text-[var(--color-red)] duration-150`}
               >
                 {term.termName}
               </NavLink>
