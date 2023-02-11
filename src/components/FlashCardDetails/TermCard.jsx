@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 
 function TermCard() {
   const { cards } = useSelector((state) => state.cards);
+  const { print } = useSelector((state) => state.print);
   const slug = useParams().slug;
   const id = useParams().id;
   return (
@@ -11,6 +12,8 @@ function TermCard() {
       <div
         className={`rounded-md w-80 md:min-w-[500px] lg:min-w-[600px] 2xl:min-w-[700px] lg:space-y-0 overflow-hidden bg-white grid grid-cols-1 ${
           cards[slug].values.terms[id].termImg ? "lg:grid-cols-2" : null
+        } ${
+          print === 1 ? "border-2 border-solid border-black" : null
         } p-5 space-x-4 space-y-8 items-center shadow-sm hover:-translate-y-2 hover:shadow-lg duration-700`}
       >
         <div

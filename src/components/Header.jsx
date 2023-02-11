@@ -1,8 +1,10 @@
 import React from "react";
 import logo from "../assets/Logo.svg";
 import { NavLink } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function Header() {
+export default function Header() {
+  const { print } = useSelector((state) => state.print);
   return (
     <div>
       <div className="bg-white w-full px-10 py-3 shadow-md flex justify-between">
@@ -15,7 +17,11 @@ function Header() {
           </h1>
         </NavLink>
       </div>
-      <div className="my-5 md:mt-10 px-5 2xl:px-44 xl:px-20 navbar">
+      <div
+        className={`my-5 md:mt-10 px-5 2xl:px-44 xl:px-20 navbar ${
+          print === 1 ? "hidden" : null
+        }`}
+      >
         <h1 className="font-bold lg:text-2xl  xsm:text-xl">Create Flashcard</h1>
         <div className="my-5 md:text-base text-sm md:font-medium font-bold text-slate-600">
           <NavLink to="/" className="mr-10 relative navitem">
@@ -30,5 +36,3 @@ function Header() {
     </div>
   );
 }
-
-export default Header;

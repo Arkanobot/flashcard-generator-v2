@@ -9,7 +9,7 @@ export default function EmptyPage() {
         <img
           className="h-[300px]"
           src={notFound}
-          alt="not found by vecteezy.com"
+          alt="not found by vecteezy.com credits for img"
         />
       </div>
       <span className="grid place-content-center text-2xl font-semibold italic sm:border-b-2 sm:border-solid sm:border-[var(--color-red)] rounded-md mb-2 text-center order-2 sm:order-1">

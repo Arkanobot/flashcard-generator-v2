@@ -1,7 +1,7 @@
 import { toast } from "react-toastify";
 
-export default function toastify(message) {
-  toast(`${message} !`, {
+export function toastify(message) {
+  toast(`${message}`, {
     position: "bottom-left",
     autoClose: 2000,
     hideProgressBar: false,

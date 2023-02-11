@@ -13,7 +13,6 @@ export default function FlashcardsList() {
           return (
             <div>
               <TitleCard values={i} />
-              {console.log(i)}
             </div>
           );
         })}
