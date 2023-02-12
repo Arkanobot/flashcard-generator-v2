@@ -26,7 +26,7 @@ export default function TitleCard(props) {
         <h1 className="mb-1 mt-4 text-3xl font-semibold">
           {cards[i].values.cardName}
         </h1>
-        <p className="text-center h-[4.5rem] truncate whitespace-normal my-2">
+        <p className="text-center h-[4.5rem] truncate whitespace-normal my-2 w-[20rem]">
           {cards[i].values.cardDesc}
         </p>
         <p>
