@@ -5,7 +5,6 @@ import MyFlashcards from "../components/MyFlashcards/MyFlashcards";
 import FlashCardDetails from "../components/FlashCardDetails/FlashCardDetails";
 import TermCard from "../components/FlashCardDetails/TermCard";
 import PageNotFound from "../components/Page404/PageNotFound";
-import SignIn from "../components/Auth/SignIn";
 
 export default function Main() {
   return (
@@ -18,7 +17,6 @@ export default function Main() {
         <Route path="/flashcard/:slug/" element={<FlashCardDetails />}>
           <Route path=":id" element={<TermCard />} />
         </Route>
-        <Route path="/sign-in" element={<SignIn />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
     </div>
