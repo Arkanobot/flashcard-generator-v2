@@ -1,6 +1,9 @@
 import { configureStore } from "@reduxjs/toolkit";
+import { loadFromLocalStorage } from "../components/LocalStorage";
 import cardReducer from "./flashcards";
 import printReducer from "./print";
+
+const preloadedState = loadFromLocalStorage();
 
 export default configureStore({
   reducer: {
@@ -8,4 +11,5 @@ export default configureStore({
     cards: cardReducer,
     print: printReducer,
   },
+  preloadedState,
 });

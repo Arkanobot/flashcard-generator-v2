@@ -9,8 +9,10 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { saveToLocalStorage } from "./components/LocalStorage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
+store.subscribe(() => saveToLocalStorage(store.getState()));
 root.render(
   <BrowserRouter>
     <React.StrictMode>

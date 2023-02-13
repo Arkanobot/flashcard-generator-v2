@@ -1,9 +1,12 @@
 import React from "react";
 import { useFormikContext, ErrorMessage } from "formik";
 import { MdOutlineDeleteForever, MdUploadFile } from "react-icons/md";
+import { IMAGE_FORMATS } from "./ImageFormat";
+import { errorToast } from "../ToastifyNotification";
 
 export default function CardImage() {
   const formikProps = useFormikContext();
+
   return (
     <div>
       {formikProps.values.cardImg === "" ? (
@@ -48,11 +51,18 @@ export default function CardImage() {
         id={`cardImg`}
         className="hidden"
         onChange={(e) => {
-          const fileReader = new FileReader();
-          fileReader.readAsDataURL(e.target.files[0]);
-          fileReader.onload = () => {
-            formikProps.setFieldValue(`cardImg`, fileReader.result);
-          };
+          if (
+            e.target.files[0] &&
+            !IMAGE_FORMATS.includes(e.target.files[0].type)
+          ) {
+            errorToast("Image format not supported", "top-center");
+          } else if (IMAGE_FORMATS.includes(e.target.files[0].type)) {
+            const fileReader = new FileReader();
+            fileReader.readAsDataURL(e.target.files[0]);
+            fileReader.onload = () => {
+              formikProps.setFieldValue(`cardImg`, fileReader.result);
+            };
+          }
         }}
       />
     </div>
