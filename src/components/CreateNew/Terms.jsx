@@ -60,6 +60,7 @@ export default function Terms() {
                     className={`border-slate-400 rounded-md p-2 lg:w-96 md:w-72 bg-gray-100 border text-md`}
                     placeholder="Please enter a Term Name [Max:15 Chars]"
                     name={`terms.${index}.termName`}
+                    value={formikProps.values.terms[index].termName}
                     maxLength={15}
                     onChange={(e) => {
                       formikProps.setFieldValue(

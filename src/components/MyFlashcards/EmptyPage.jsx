@@ -7,12 +7,12 @@ export default function EmptyPage() {
     <div className="grid place-content-center h-[60vh]">
       <div className="grid place-content-center order-1 sm:order-2">
         <img
-          className="h-[300px]"
+          className="h-[300px] mb-10"
           src={notFound}
           alt="not found by vecteezy.com credits for img"
         />
       </div>
-      <span className="grid place-content-center text-2xl font-semibold italic sm:border-b-2 sm:border-solid sm:border-[var(--color-red)] rounded-md mb-2 text-center order-2 sm:order-1">
+      <span className="grid place-content-center text-2xl font-semibold italic rounded-md mb-10 text-center order-2 sm:order-1">
         It sure is empty in here, Perhaps you want to fill it with a new
         Flashcard?
       </span>
