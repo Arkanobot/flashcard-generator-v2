@@ -3,7 +3,7 @@ import logo from "../assets/Logo.svg";
 import { NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
 export default function Header() {
-  const { print } = useSelector((state) => state.print);
+  const { print } = useSelector((state) => state.print); // fetching data of print store for hiding/ displaying header on state change
   return (
     <div>
       <div className="bg-white w-full px-10 py-3 shadow-md flex justify-between">
@@ -27,7 +27,7 @@ export default function Header() {
       </div>
       <div
         className={`my-5 md:mt-10 px-5 2xl:px-44 xl:px-20 navbar ${
-          print === 1 ? "hidden" : null
+          print === 1 ? "hidden" : null // if the print state is true, then hides the header, else shows it
         }`}
       >
         <h1 className="font-bold lg:text-2xl  xsm:text-xl">Create Flashcard</h1>

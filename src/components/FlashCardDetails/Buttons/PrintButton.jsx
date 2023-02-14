@@ -7,11 +7,11 @@ import { successToast } from "../../ToastifyNotification";
 function PrintButton() {
   const dispatch = useDispatch();
   const printing = () => {
-    dispatch(setPrint(1));
+    dispatch(setPrint(1)); // changing the state to printing to change layout of the website to get a clean print
     setTimeout(() => {
-      window.print();
-      dispatch(setPrint(0));
-      successToast("Print Order Created", "bottom-left");
+      window.print(); // printing the current window
+      dispatch(setPrint(0)); // resetting the state to not printing so that we get the default page layout
+      successToast("Print Order Created", "bottom-left"); // toasting the print order created message
     }, 300);
   };
   return (

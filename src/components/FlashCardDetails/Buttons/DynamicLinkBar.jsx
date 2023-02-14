@@ -1,11 +1,13 @@
 import React from "react";
 import { HiOutlineClipboardDocumentCheck } from "react-icons/hi2";
 import { successToast } from "../../ToastifyNotification";
+import { useSelector } from "react-redux";
 
-function DynamicLinkBar() {
+export default function DynamicLinkBar() {
+  const { link } = useSelector((state) => state.link); // state for handling Links in the Link bar
   const handleCopy = () => {
-    window.navigator.clipboard.writeText(window.location.href);
-    successToast("Link Copied", "top-center");
+    window.navigator.clipboard.writeText(link); // copy the link in the state to the browser clipboard
+    successToast("Link Copied", "top-center"); // toast the link copied message on top
   };
   return (
     <div className="border-2 border-dashed border-gray-300 rounded-lg inline-flex justify-around w-[100%]">
@@ -13,7 +15,7 @@ function DynamicLinkBar() {
         Link:
       </div>
       <div className="m-1 inline-block overflow-auto w-[80%] text-center py-[2.5%] shadow-inner shadow-gray rounded-r-md text-black">
-        {window.location.href}
+        {link}
       </div>
       <div
         className="mx-2 w-6 text-blue-500 grid place-content-center cursor-pointer"
@@ -24,5 +26,3 @@ function DynamicLinkBar() {
     </div>
   );
 }
-
-export default DynamicLinkBar;

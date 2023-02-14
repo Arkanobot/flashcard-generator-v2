@@ -12,12 +12,14 @@ import "react-toastify/dist/ReactToastify.css";
 import { saveToLocalStorage } from "./components/LocalStorage";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-store.subscribe(() => saveToLocalStorage(store.getState()));
+store.subscribe(() => saveToLocalStorage(store.getState())); // calling the function to save the redux state to localstorage
 root.render(
   <BrowserRouter>
     <React.StrictMode>
+      {/* provider for redux store */}
       <Provider store={store}>
         <App />
+        {/*toast container for toastify toasts */}
         <ToastContainer />
       </Provider>
     </React.StrictMode>

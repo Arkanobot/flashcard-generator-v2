@@ -1,3 +1,4 @@
+// image formats for image upload check
 export const IMAGE_FORMATS = [
   "image/gif",
   "image/webp",

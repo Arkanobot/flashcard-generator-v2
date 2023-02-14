@@ -13,8 +13,8 @@ import { useParams } from "react-router-dom";
 import DownloadIcon from "./DownloadIcon";
 
 export default function DownloadButton() {
-  const { cards } = useSelector((state) => state.cards);
-  const { slug, id } = useParams();
+  const { cards } = useSelector((state) => state.cards); // getting the cards state to print values to the PDF
+  const { slug, id } = useParams(); // using the slug to target the specific cards and terms
 
   //creating stylesheet for pdf
   const MyDoc = () => {
@@ -61,7 +61,8 @@ export default function DownloadButton() {
               padding: 5,
             }}
           >
-            {cards[slug].values.terms[id].termImg ? (
+            {cards[slug].values.terms[id].termImg &&
+            cards[slug].values.terms[id].termImg.includes("data:image/jpeg") ? (
               <Image
                 src={cards[slug].values.terms[id].termImg}
                 alt="Image"
@@ -111,14 +112,14 @@ export default function DownloadButton() {
 
   return (
     <PDFDownloadLink
-      document={<MyDoc />}
+      document={<MyDoc />} // on click of download - loads the data to the stylesheet
       fileName={`${cards[slug].values.terms[id].termName}.pdf`}
     >
       {({ blob, url, loading, error }) =>
         loading ? (
-          <DownloadIcon value="Loading File..." />
+          <DownloadIcon value="Loading File..." /> // if the file is loading, loads the download icon component with text loading file
         ) : (
-          <DownloadIcon value="Download" />
+          <DownloadIcon value="Download" /> // if the file has finished loading, loads the download icon component with text  Download
         )
       }
     </PDFDownloadLink>

@@ -2,6 +2,7 @@ import React from "react";
 import { TbDownload } from "react-icons/tb";
 
 export default function DownloadIcon({ value }) {
+  // download icon button, takes value as props and displays the value in the button format
   return (
     <div
       data-mdb-ripple="true"

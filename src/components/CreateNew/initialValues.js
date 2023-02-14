@@ -1,3 +1,4 @@
+// initial values for the forms for redux
 export const initialValues = {
   cardName: "",
   cardDesc: "",

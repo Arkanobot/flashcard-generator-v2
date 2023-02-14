@@ -4,14 +4,13 @@ import { Link } from "react-router-dom";
 import { cardRem } from "../../redux/flashcards";
 import { errorToast } from "../ToastifyNotification";
 
-export default function TitleCard(props) {
-  const { cards } = useSelector((state) => state.cards);
-  const i = props.values;
+export default function TitleCard({ i }) {
+  const { cards } = useSelector((state) => state.cards); // fetching the cards store for data
   const dispatch = useDispatch();
 
   const handleRemove = () => {
-    dispatch(cardRem(i));
-    errorToast("Flashcard Deleted", "top-center");
+    dispatch(cardRem(i)); // dispatching remove card action to the store
+    errorToast("Flashcard Deleted", "top-center"); // toasting the flashcard Deleted message
   };
   return (
     <div className="mx-auto w-full mt-10 max-w-sm max-h-sm bg-white border border-gray-200 rounded-lg shadow-md hover:shadow-xl transition-all ease-in-out duration-300 hover:-translate-y-1">
@@ -30,20 +29,22 @@ export default function TitleCard(props) {
           {cards[i].values.cardDesc}
         </p>
         <p>
-          {cards[i].values.terms.length > 1 ? (
-            <div>
+          {cards[i].values.terms.length > 1 ? ( // if there are more than 1 terms, then displays the term count
+            <>
               <span className="text-sm text-slate-500">Total Cards : </span>
               <span className="font-medium text-xl">
                 {cards[i].values.terms.length}
               </span>
-            </div>
+            </>
           ) : (
+            // else displays Only 1 card message
             <div className="text-sm text-slate-500">
               Only<span className="font-medium text-xl text-black"> 1 </span>
               Card
             </div>
           )}
         </p>
+        {/* link to the specific cards details page showing all the terms etc */}
         <Link
           to={`/flashcard/${i}/${0}`}
           className="flex mt-4 space-x-3 md:mt-6"

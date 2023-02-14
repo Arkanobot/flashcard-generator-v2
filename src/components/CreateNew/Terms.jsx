@@ -4,12 +4,12 @@ import TermImage from "./TermImage";
 import { RiDeleteBackFill, RiEditBoxLine, RiAddFill } from "react-icons/ri";
 
 export default function Terms() {
-  const formikProps = useFormikContext();
-  const termNames = useRef([]);
-  termNames.current = [];
+  const formikProps = useFormikContext(); // formik context cause handling formik values via a child component
+  const termNames = useRef([]); // setting reference for termNames field
+  termNames.current = []; // setting the empty array as termNames reference
   const addRef = (element) => {
     if (element && !termNames.current.includes(element)) {
-      termNames.current.push(element);
+      termNames.current.push(element); // pushing the current reference of termNames to the array / to target termName field on click
     }
   };
 
@@ -19,11 +19,13 @@ export default function Terms() {
       render={(arrayHelpers) => (
         <div className="bg-white p-5 rounded-md mt-4  overflow-hidden">
           {formikProps.values.terms.map((term, index) => (
+            // getting values from formik context and mapping through the term array
             <div
               className="md:flex md:space-x-10 md:items-center relative flex-wrap my-2"
               key={index}
             >
               <div className="md:flex md:space-x-10 relative flex-wrap">
+                {/*===div for term Index number=== */}
                 <div
                   className={`mt-3 grid place-content-center ${
                     term.termDef === ""
@@ -41,6 +43,7 @@ export default function Terms() {
                   </div>
                 </div>
               </div>
+              {/*===div for TermName field & the errors related to termNames ===*/}
               <div className="md:flex md:space-x-10 md:items-center relative flex-wrap justify-between">
                 <div
                   className={`flex flex-col my-2 ${
@@ -73,6 +76,7 @@ export default function Terms() {
                     <ErrorMessage name={`terms.${index}.termName`} />
                   </span>
                 </div>
+                {/* ===div for handling term Defination and the errors related to term defination ===*/}
                 <div className="flex flex-col my-2">
                   <span className="font-semibold text-slate-500">
                     Term Defination*
@@ -105,13 +109,13 @@ export default function Terms() {
                   </span>
                 </div>
 
-                {/*===Image Component for Term Image=== */}
+                {/*===Image Component for Term Image & errors related to Term Image=== */}
                 <TermImage term={term} index={index} />
               </div>
               <div className="flex sm:flex-col justify-center mt-5">
                 <RiEditBoxLine
                   onClick={() => {
-                    termNames.current[index].focus();
+                    termNames.current[index].focus(); // focuses the correct termname Field on click of edit button
                   }}
                   size={"1.2rem"}
                   className={`cursor-pointer transition-all  ease-in-out mx-1 text-blue-500  hover:text-[var(--color-red)] my-1`}

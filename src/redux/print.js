@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// slice for print state
 export const printSlice = createSlice({
   name: "print",
   initialState: {

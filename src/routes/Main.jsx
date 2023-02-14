@@ -7,6 +7,7 @@ import TermCard from "../components/FlashCardDetails/TermCard";
 import PageNotFound from "../components/Page404/PageNotFound";
 
 export default function Main() {
+  // routes for handling all the route in the app
   return (
     <div>
       <Routes>

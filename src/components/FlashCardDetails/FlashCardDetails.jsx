@@ -7,19 +7,23 @@ import TermCountArrows from "./TermCountArrows";
 import { useSelector } from "react-redux";
 
 export default function FlashCardDetails() {
-  const { print } = useSelector((state) => state.print);
+  const { print } = useSelector((state) => state.print); // getting the print store data for layout change purposes
   return (
     <div className="md:mt-10  px-5  xl:px-44  my-5">
+      {/* calling the details header component for displaying card group name and description */}
       <DetailsHeader />
       <div className="grid xl:grid-cols-5 md:grid-cols-4 grid-cols-2 space-x-3">
+        {/* calling the term bar component for displaying the names of the terms to navigate between terms */}
         <TermBar />
         <div className="col-span-2 md:col-span-3 grid justify-center">
-          <Outlet />
+          <Outlet />{" "}
+          {/* calling in outlet to display the child component - term card */}
           <div
             className={`flex text-slate-800 cursor-pointer justify-center my-5 space-x-5 ${
               print === 1 ? "hidden" : null
             }`}
           >
+            {/* displays/hides the term navigation arrows based on the print status */}
             <TermCountArrows />
           </div>
         </div>
@@ -28,6 +32,7 @@ export default function FlashCardDetails() {
             print === 1 ? "hidden" : null
           }`}
         >
+          {/* displays/hides the buttons component based on the print status */}
           <Buttons />
         </div>
       </div>

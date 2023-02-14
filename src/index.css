@@ -1,7 +1,9 @@
+/* calling the tailwind styles */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+/* defining specific styles and classes for use in the app*/
 :root {
   --color-red: #cc1313;
   --bg-light-orange: #f5f1ec;

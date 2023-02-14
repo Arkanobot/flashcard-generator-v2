@@ -3,6 +3,7 @@ import Modal from "./Modal";
 import { MdShare } from "react-icons/md";
 
 function ShareButton() {
+  // share button component to handle the sharing of the term page link
   return (
     <div
       data-mdb-ripple="true"
@@ -17,6 +18,7 @@ function ShareButton() {
         </span>
         <span>Share</span>
       </div>
+      {/* calling the modal on click of share button */}
       <Modal />
     </div>
   );

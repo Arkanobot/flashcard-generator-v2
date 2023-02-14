@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+// slice for flashcard data
 export const flashcardSlice = createSlice({
   name: "flashcards",
   initialState: {

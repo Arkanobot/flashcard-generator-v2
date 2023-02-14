@@ -9,17 +9,19 @@ import { cardAdd } from "../../redux/flashcards";
 import { successToast } from "../ToastifyNotification";
 
 export default function CreateNewFlashcard() {
-  const dispatch = useDispatch();
+  //component for creating new flashcard
+  const dispatch = useDispatch(); // dispatch to update state
   return (
     <div className="md:mt-10 px-5 2xl:pl-44 2xl:pr-[20%] xl:px-20 my-5">
       <div>
+        {/* initiating formik for handling form data and values */}
         <Formik
           initialValues={initialValues}
-          validationSchema={formSchema}
+          validationSchema={formSchema} // custom form Schema implimented using Yup
           onSubmit={(values, actions) => {
-            actions.resetForm();
-            dispatch(cardAdd({ values }));
-            successToast("Flashcard Created", "top-center");
+            actions.resetForm(); // resetting the form to no values
+            dispatch(cardAdd({ values })); // dispatching the value to store
+            successToast("Flashcard Created", "top-center"); // toasing the success messaage
           }}
         >
           {(props) => (
@@ -34,6 +36,7 @@ export default function CreateNewFlashcard() {
                     <h1 className="font-semibold text-slate-500">
                       Create Group*
                     </h1>
+                    {/* Card Name Field - for Card group name & errors related to card Name */}
                     <Field
                       className=" border-slate-400  focus:ring-0 active:ring-0 rounded-md md:w-96 p-2
                   bg-gray-100 border text-md  "
@@ -56,9 +59,11 @@ export default function CreateNewFlashcard() {
                       props.values.cardImg === "" ? "order-2" : "order-1"
                     } `}
                   >
+                    {/* Card image component - for Card image & errors related to cardImage */}
                     <CardImage />
                   </div>
                 </div>
+                {/* Card description Field - for Card description & errors related to description */}
                 <div className="flex flex-col">
                   <span className="font-semibold text-slate-500">
                     Group Description*
@@ -84,9 +89,11 @@ export default function CreateNewFlashcard() {
                   </div>
                 </div>
               </div>
+              {/*terms component for handling all the terms details */}
               <div>
                 <Terms values={props.values} />
               </div>
+              {/*handle submit button for the form */}
               <div className="grid place-content-center">
                 <button
                   data-mdb-ripple="true"

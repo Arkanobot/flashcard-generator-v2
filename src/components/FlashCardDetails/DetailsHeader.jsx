@@ -5,11 +5,12 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 function DetailsHeader() {
-  const slug = useParams().slug;
-  const { cards } = useSelector((state) => state.cards);
+  const slug = useParams().slug; // getting the slug to get the details of the card group
+  const { cards } = useSelector((state) => state.cards); // getting the cards data for displaying values
   return (
     <div className="flex space-x-5">
       <div>
+        {/* back button to go back to my flashcards page */}
         <Link to="/myflashcard">
           <FaLongArrowAltLeft
             className="inline-block hover:-translate-x-2 hover:text-[var(--color-red)] duration-300"
@@ -17,6 +18,7 @@ function DetailsHeader() {
           />
         </Link>
       </div>
+      {/* displays the header with card group name and description */}
       <div className="space-y-5 pb-5 overflow-hidden">
         <h1 className="font-bold text-xl">
           <span className="border-b-2 border-solid border-black rounded-sm">

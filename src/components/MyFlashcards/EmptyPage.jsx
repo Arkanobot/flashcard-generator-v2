@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import notFound from "../../assets/No_results_found.png";
 
 export default function EmptyPage() {
+  // displays the Empty page in case there is no card groups to display
   return (
     <div className="grid place-content-center h-[60vh]">
       <div className="grid place-content-center order-1 sm:order-2">
@@ -17,6 +18,7 @@ export default function EmptyPage() {
         Flashcard?
       </span>
       <div className="grid place-content-center order-3">
+        {/* button to redirect the user to create new page */}
         <NavLink
           to="/"
           className="border-[var(--color-red)]  border w-52  p-2  text-[var(--color-red)] rounded-lg shadow-md hover:-translate-y-px hover:bg-[var(--color-red)] hover:text-white transition-all ease-in-out grid place-content-center font-semibold"

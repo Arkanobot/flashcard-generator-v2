@@ -5,11 +5,12 @@ import { errorToast } from "../ToastifyNotification";
 import { IMAGE_FORMATS } from "./ImageFormat";
 
 export default function TermImage(props) {
-  const formikProps = useFormikContext();
+  const formikProps = useFormikContext(); // formik context cause handling formik values via a child component
 
   return (
     <div>
       {props.term.termImg === "" ? (
+        // in case the termImg is a empty string, then show the select img button
         <label htmlFor={`img${props.index}`}>
           <div
             data-mdb-ripple="true"
@@ -20,6 +21,7 @@ export default function TermImage(props) {
           </div>
         </label>
       ) : (
+        // else show the 95px variant of the image with delete button to reset the img to empty
         <div className="grid place-content-center md:flex  md:space-x-4 md:space-y-4 md:my-5 ">
           <div className="w-[130px] relative p-4 overflow-hidden flex">
             <MdOutlineDeleteForever
@@ -40,6 +42,7 @@ export default function TermImage(props) {
           </div>
         </div>
       )}
+      {/*input field to handle the image and the image file type */}
       <input
         type="file"
         name={`terms.${props.index}.termImg`}
@@ -48,10 +51,11 @@ export default function TermImage(props) {
         onChange={(e) => {
           if (
             e.target.files[0] &&
-            !IMAGE_FORMATS.includes(e.target.files[0].type)
+            !IMAGE_FORMATS.includes(e.target.files[0].type) // if image type is not supported, toast file not supported
           ) {
             errorToast("Image format not supported", "top-center");
           } else if (IMAGE_FORMATS.includes(e.target.files[0].type)) {
+            // else set the termImg to data blob
             const fileReader = new FileReader();
             fileReader.readAsDataURL(e.target.files[0]);
             fileReader.onload = () => {

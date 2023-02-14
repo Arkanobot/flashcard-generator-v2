@@ -3,13 +3,14 @@ import DynamicLinkBar from "./DynamicLinkBar";
 import SocialButtons from "./SocialButtons";
 
 export default function Modal() {
+  //modal for displaying the Link and the related share buttons
   return (
     <div
       className="modal fade fixed top-0 left-0 hidden w-full h-full outline-none overflow-x-hidden overflow-y-auto"
       id="staticBackdrop"
       data-bs-backdrop="static"
       data-bs-keyboard="false"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="staticBackdropLabel"
       aria-hidden="true"
     >
@@ -31,9 +32,11 @@ export default function Modal() {
           </div>
           <div className="modal-body relative p-4">
             <div>
+              {/* the Dynamic link bar that will generate the current page link for sharing with a copy button */}
               <DynamicLinkBar />
             </div>
             <div>
+              {/* the social buttons component to share the link to the specified social media */}
               <SocialButtons />
             </div>
           </div>

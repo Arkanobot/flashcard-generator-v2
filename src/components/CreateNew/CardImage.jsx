@@ -4,12 +4,14 @@ import { MdOutlineDeleteForever, MdUploadFile } from "react-icons/md";
 import { IMAGE_FORMATS } from "./ImageFormat";
 import { errorToast } from "../ToastifyNotification";
 
+//returns the card Image Upload button or the Image depending on the State if image is uploaded or not
 export default function CardImage() {
   const formikProps = useFormikContext();
 
   return (
     <div>
       {formikProps.values.cardImg === "" ? (
+        //if cardImg state is empty string, then returns the Upload image button
         <label htmlFor={`cardImg`}>
           <div
             data-mdb-ripple="true"
@@ -28,6 +30,7 @@ export default function CardImage() {
           </div>
         </label>
       ) : (
+        // if the cardImg is a data blob, then shows the 95px variant of the image
         <div className="grid place-content-center md:flex  md:space-x-4 md:space-y-4 md:my-5">
           <div className="w-[130px] relative px-4 overflow-hidden flex">
             <MdOutlineDeleteForever
@@ -45,6 +48,7 @@ export default function CardImage() {
           </div>
         </div>
       )}
+      {/* Input field for uploading/ reading the image */}
       <input
         type="file"
         name={`cardImg`}
@@ -53,10 +57,11 @@ export default function CardImage() {
         onChange={(e) => {
           if (
             e.target.files[0] &&
-            !IMAGE_FORMATS.includes(e.target.files[0].type)
+            !IMAGE_FORMATS.includes(e.target.files[0].type) // if the event includes a file & if the file type is not from the accepted Image formats then toasts error
           ) {
             errorToast("Image format not supported", "top-center");
           } else if (IMAGE_FORMATS.includes(e.target.files[0].type)) {
+            // else reads data as a data blob and sets the cardImg state value to data blob
             const fileReader = new FileReader();
             fileReader.readAsDataURL(e.target.files[0]);
             fileReader.onload = () => {

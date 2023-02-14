@@ -12,6 +12,7 @@ import {
 } from "react-share";
 
 function SocialButtons() {
+  // social buttons to handle the sharing of the link to the specific social media platform
   return (
     <div className={`mt-4 mx-1 flex justify-between`}>
       <div className="facebook shadow-inner shadow-slate-300 rounded-md p-1 h-10 w-10">
