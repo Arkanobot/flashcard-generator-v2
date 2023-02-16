@@ -26,14 +26,13 @@ const store = configureStore({
   },
   preloadedState,
 });
-console.log(`Hello World!`, preloadedState);
 
 describe("Flash cards list", () => {
   it("Should show title cards when there is value in the store", () => {
     render(
       <BrowserRouter>
         <Provider store={store}>
-          <FlashcardsList i={1} />
+          <FlashcardsList />
         </Provider>
       </BrowserRouter>
     );

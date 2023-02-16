@@ -21,11 +21,17 @@ function DetailsHeader() {
       {/* displays the header with card group name and description */}
       <div className="space-y-5 pb-5 overflow-hidden">
         <h1 className="font-bold text-xl">
-          <span className="border-b-2 border-solid border-black rounded-sm">
+          <span
+            className="border-b-2 border-solid border-black rounded-sm"
+            data-testid="Details-HeaderName"
+          >
             {cards[slug].values.cardName}
           </span>
         </h1>
-        <p className="text-md text-slate-500 italic">
+        <p
+          className="text-md text-slate-500 italic"
+          data-testid="Details-HeaderDesc"
+        >
           {cards[slug].values.cardDesc}
         </p>
       </div>
