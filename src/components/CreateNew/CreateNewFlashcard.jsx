@@ -46,7 +46,7 @@ export default function CreateNewFlashcard() {
                       value={props.values.cardName}
                       name="cardName"
                       maxLength={15}
-                      placeholder={"Please Group Name [Max: 15 Chars]"}
+                      placeholder={"Please enter Group Name [Max: 15 Chars]"}
                     />
                     {
                       <p className="mx-auto text-sm text-[var(--color-red)]">
@@ -77,7 +77,9 @@ export default function CreateNewFlashcard() {
                     value={props.values.cardDesc}
                     maxLength={500}
                     name="cardDesc"
-                    placeholder={"Please Group Description [Max: 500 Chars]"}
+                    placeholder={
+                      "Please enter Group Description [Max: 500 Chars]"
+                    }
                   />
                   <div>
                     <span className="text-sm text-slate-500">{`Chars left: ${

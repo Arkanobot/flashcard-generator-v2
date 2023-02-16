@@ -52,7 +52,8 @@ export default function TitleCard({ i }) {
           <span
             data-mdb-ripple="true"
             data-mdb-ripple-color="light"
-            className="grid place-content-center px-10 py-2 text-lg font-semibold text-center text-[var(--color-red)] bg-white rounded-lg hover:bg-[var(--color-red)] hover:text-white border-[var(--color-red)] border-2 focus:ring-4 focus:outline-none focus:ring-red-400 hover:translate-y-1 shadow-md transition-all ease-in-out duration-500"
+            data-test-id="test-span"
+            className="grid place-content-center px-10 py-2 text-lg font-semibold text-center text-[var(--color-red)] bg-white rounded-lg hover:bg-[var(--color-red)] hover:text-white border-[var(--color-red)] border-2 focus:ring-4 focus:outline-none focus:ring-red-600 hover:translate-y-1 shadow-md transition-all ease-in-out duration-500"
           >
             Show Cards
           </span>
