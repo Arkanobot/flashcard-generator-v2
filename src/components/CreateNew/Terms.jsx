@@ -72,6 +72,11 @@ export default function Terms() {
                       );
                     }}
                   />
+                  <span
+                    className={`text-[0.70rem] text-slate-500 duration-[250ms] absolute top-[4rem] md:top-[5rem]`}
+                  >{`Chars left: ${
+                    15 - formikProps.values.terms[index].termName.length
+                  }`}</span>
                   <span className="mx-auto text-sm text-[var(--color-red)]">
                     <ErrorMessage name={`terms.${index}.termName`} />
                   </span>
@@ -98,8 +103,8 @@ export default function Terms() {
                   <span
                     className={`text-[0.70rem] text-slate-500 absolute ${
                       formikProps.values.terms[index].termDef !== ""
-                        ? "top-[8.2rem]"
-                        : "top-20"
+                        ? "top-[17rem] md:top-[8.2rem]"
+                        : "top-[10rem] md:top-20"
                     }  duration-[250ms]`}
                   >{`Chars left: ${
                     500 - formikProps.values.terms[index].termDef.length
