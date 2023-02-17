@@ -9,11 +9,11 @@ import PageNotFound from "../Page404/PageNotFound";
 
 export default function FlashCardDetails() {
   const { print } = useSelector((state) => state.print); // getting the print store data for layout change purposes
-  const { cards } = useSelector((state) => state.cards);
-  const { slug, id } = useParams();
+  const { cards } = useSelector((state) => state.cards); // getting the cards for validating links
+  const { slug, id } = useParams(); // getting the params for validating links
   return (
     <div>
-      {cards && cards.length > slug && cards[slug].values.terms.length > id ? (
+      {cards && cards.length > slug && cards[slug].values.terms.length > id ? ( // if the links are fine, then display the details, else display error404
         <div className="md:mt-10  px-5  xl:px-44  my-5">
           {/* calling the details header component for displaying card group name and description */}
           <DetailsHeader />
