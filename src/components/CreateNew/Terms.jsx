@@ -76,10 +76,10 @@ export default function Terms() {
                     <ErrorMessage name={`terms.${index}.termName`} />
                   </span>
                 </div>
-                {/* ===div for handling term Defination and the errors related to term defination ===*/}
+                {/* ===div for handling term definition and the errors related to term definition ===*/}
                 <div className="flex flex-col my-2">
                   <span className="font-semibold text-slate-500">
-                    Term Defination*
+                    Term Definition*
                   </span>
                   <Field
                     as="textarea"
@@ -91,7 +91,7 @@ export default function Terms() {
                           : "h-24"
                         : "h-24"
                     }`}
-                    placeholder="Please enter the Term Defination [Max: 500 Chars]"
+                    placeholder="Please enter the Term Definition [Max: 500 Chars]"
                     type="text"
                     name={`terms.${index}.termDef`}
                   />
@@ -105,7 +105,7 @@ export default function Terms() {
                     500 - formikProps.values.terms[index].termDef.length
                   }`}</span>
                   <span className="mx-auto text-sm text-[var(--color-red)]">
-                    <ErrorMessage name={`terms.${index}.termName`} />
+                    <ErrorMessage name={`terms.${index}.termDef`} />
                   </span>
                 </div>
 

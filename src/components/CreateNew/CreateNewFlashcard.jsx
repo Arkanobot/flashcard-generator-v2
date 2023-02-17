@@ -100,6 +100,7 @@ export default function CreateNewFlashcard() {
                 <button
                   data-mdb-ripple="true"
                   data-mdb-ripple-color="light"
+                  data-testid="create"
                   className="mt-6 border-[var(--color-red)]  border w-32  p-2  text-[var(--color-red)] rounded-lg shadow-md hover:-translate-y-px hover:bg-[var(--color-red)] hover:text-white transition-all ease-in-out grid place-content-center font-semibold"
                   type="submit"
                 >
