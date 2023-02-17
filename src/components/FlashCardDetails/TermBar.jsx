@@ -15,9 +15,9 @@ export default function TermBar() {
   return (
     <div className="hidden md:block">
       <div className="bg-white min-w-[150px]  max-w-[300px] shadow-md p-4 rounded-md md:order-none order-1">
-        <strong className="text-slate-500">Flashcards</strong>
+        <strong className="text-slate-500 text-xl">Flashcards</strong>
         <hr className="border-slate-500" />
-        <div className=" p-2 space-y-3 overflow-hidden termName text-center">
+        <div className=" p-2 space-y-3 termName text-center max-h-[40vh] overflow-auto">
           {cards[slug].values.terms.map((term, i) => {
             // displays term name that exists in the card group
             return (
